@@ -6,7 +6,8 @@
     "start": "expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
-    "web": "expo start --web"
+    "web": "expo start --web",
+    "build:ios": "react-native bundle --entry-file='index.ios.js' --bundle-output='./ios/YourAppName/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
   },
   "dependencies": {
     "@expo/vector-icons": "^13.0.0",
@@ -26,8 +27,9 @@
     "react-native-screens": "^3.18.2",
     "react-native-segmented-control-tab": "^4.0.0",
     "react-native-xml2js": "^1.0.3",
-    "react-xml-parser": "^1.1.8",
-    "soap": "^0.45.0"
+    "soap": "^0.45.0",
+    "xcode": "^3.0.1",
+    "xml2json-light": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

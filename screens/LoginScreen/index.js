@@ -3,21 +3,37 @@ import { ImageBackground, View, Text, Image,StyleSheet, TextInput, TouchableOpac
 import { useNavigation } from '@react-navigation/native';
 import Logo1 from './../../assets/logo1.png';
 import backgroundImagem from './../../assets/bg_login.jpg';
+import { Linking, ToastAndroid } from 'react-native'
 
 import {  FontAwesome5 , Entypo, AntDesign   } from '@expo/vector-icons';
 import api from "../../services/api";
 
 export default () => {
-   
+    const [result, setResult] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigation = useNavigation();
 
+    const openUrl = async() => {
+        await Linking.openURL('https://www.pitacosdacopa.com.br/')
+    }
+
     const login = async () => {
         if(email && password){
-            let result = api.login(email, password)
-            navigation.navigate('Teste')
-            
+            var resultado = await api.loginAuth(result, email, password)
+            //console.log(resultado)
+            setResult(resultado)
+
+            if (resultado)
+            {
+                alert("Usuário ou senha inválidos!")
+            }
+            else
+            {
+                navigation.navigate('Teste')
+            }
+                
+            console.log(resultado)
         }
         else{
             alert("Favor informar e-mail e senha!")
@@ -58,7 +74,7 @@ export default () => {
             <Entypo style={estilos.iconesAcessar}  name="arrow-with-circle-right" size={24} color="black" />
                 <Text style={estilos.botaoTextoAcessar}>Acessar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={estilos.botaoRegistrar} >
+            <TouchableOpacity style={estilos.botaoRegistrar} onPress={openUrl}>
                 <FontAwesome5 style={estilos.iconesRegistrar}  name="user-plus" size={20} color="black" />
                 <Text style={estilos.botaoTextoRegistrar}>Registrar</Text>
             </TouchableOpacity>

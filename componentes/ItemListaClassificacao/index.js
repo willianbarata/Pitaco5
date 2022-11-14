@@ -73,7 +73,7 @@ export default function ItemListaClassificacao(props) {
                 
                 <FontAwesome style={estilo.item} name="user" size={24} color="black" />
                 <Text style={estilo.item}> {props.posicao} º </Text>
-                <Text style={estilo.flexa}>  </Text>
+                
             </View>
             <Text style={estilo.pontos}>Pontos: 0</Text>
             

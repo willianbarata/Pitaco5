@@ -4,7 +4,7 @@ import Titulo from '../Titulo';
 import ItemLista from '../ItemLista';
 import estilo from './estilo.js';
 import api from '../../services/api';
-import { AntDesign } from '@expo/vector-icons'; 
+
 
 import {  FontAwesome } from '@expo/vector-icons';
 
@@ -60,7 +60,7 @@ export default function Tabela() {
       
       <ScrollView style={estilo.lista}>
       <ItemLista placar={item.placar} dataInicio={item.DataHora} pais1={item.ImagemTime1} pais2={item.ImagemTime2} imagemTime1={item.ImagemTime1} imagemTime2={item.ImagemTime2} paisCasa="JAPAO" />
-      <AntDesign name="right" size={14} color="gray" /> 
+      
     </ScrollView> 
       }
     />

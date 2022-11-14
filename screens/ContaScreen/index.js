@@ -5,26 +5,37 @@ import { ImageBackground, View, Text, Image,StyleSheet, TextInput, render, Butto
 import api from "../../services/api";
 import imgBackGround from "../../assets/bg_login.png";
 import backgroundImagem from './../../assets/bg_login.jpg';
-import logoPitaco from "../../assets/logo2.png"
-import { FontAwesome    } from '@expo/vector-icons';
+import logoPitaco from "../../assets/logo2.png";
+import { Linking, ToastAndroid } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+
 
 export default class InformacoesScreen extends React.Component {
     
 
     constructor(props) {
       super(props);
+      this.navigate = async() => {
+        console.log("Testeeei")
+        useNavigation('Teste');
+    }
 
       this.state = {
         GrupoCod : ""
       };
     }
-  
+
     componentDidMount() {
+        
         const getBarberInfo = async () => {
             var lista = "";
             var res = await api.login(lista);
             var infoUsu = JSON.parse(res)
+
+
+             this.openUrl = async() => {
+                await Linking.openURL('https://www.pitacosdacopa.com.br/')
+            }
 
             this.setState({
                 GrupoNome: infoUsu["Grupo"]["Nome"],
@@ -44,8 +55,6 @@ export default class InformacoesScreen extends React.Component {
   
   
     render() {
-
-
       return (
  
                 <ImageBackground source={ backgroundImagem } resizeMode="cover" style={estilos.imagemFundo}>
@@ -54,7 +63,7 @@ export default class InformacoesScreen extends React.Component {
                     source={logoPitaco}/> 
                     
                     <Text style={estilos.textDefaut2}>     Selecione a sua conta:</Text>
-                    <TouchableOpacity >
+                    <TouchableOpacity>
                         <View style={estilos.Conta}>
                         <Image style={ estilos.img } source={ {uri:this.state.ImagemGrupo }}/>
                         <Text style={estilos.titleText}> {this.state.UsuarioNome} </Text>                         
@@ -62,13 +71,10 @@ export default class InformacoesScreen extends React.Component {
                         <View>
                         <Text style={estilos.titleText2}> {this.state.UsuarioEmail} </Text>    
                         </View>
-                        
                     </TouchableOpacity>
-                    <TouchableOpacity >
+                    <TouchableOpacity onPress={this.openUrl}>
                     <View style={estilos.Registro}>
-                    <Text style={estilos.titleText3}>
-                         <FontAwesome name="user-plus" size={24} color="white" />
-                         <Text style={estilos.adicionarConta}>  ADICIONAR NOVA CONTA</Text>  </Text>   
+                    <Text style={estilos.titleText3}> Adicionar Nova Conta </Text>   
                     </View>
                     </TouchableOpacity>
 
@@ -83,24 +89,24 @@ export default class InformacoesScreen extends React.Component {
 const estilos = StyleSheet.create({
 
     titleText:{
-        marginTop: 10,
-        fontSize: 20,        
+        fontSize: 15,
+        fontWeight: "bold",
         color: "black",
 
     },
     titleText2:{
         fontSize: 15,
+        fontWeight: "bold",
         color: "black",
-        marginLeft: '20%',
-        marginTop: '-2%'
-            
+        textAlign: "left", 
+        marginLeft: '50%'
     },
     titleText3:{
         fontSize: 15,
         fontWeight: "bold",
         color: "black",
         textAlign: "center",
-        marginTop: '3%',
+        textAlignVertical: "center" ,
         color: 'white'
     },
     ContainerDefault:{
@@ -117,10 +123,9 @@ const estilos = StyleSheet.create({
         fontWeight: "normal"
     },
     textDefaut2:{
-        fontSize: 18,
+        fontSize: 16,
         marginRight:'auto',
         fontWeight: "normal",
-        color: 'white'
         
     },
     textVariable:{
@@ -138,17 +143,13 @@ const estilos = StyleSheet.create({
         ImageBackground: imgBackGround
     },
      img: {
-        width: 50,
-        height: 50,
-        marginTop: '2%',
-        marginLeft: '5%',
-        borderRadius: 100
-        /* width: '50%',
+        width: '50%',
         height: '100%',
         resizeMode: "contain", 
         flex: 1,
         justifyContent: "center",
-        marginLeft: '-30%', */
+        marginLeft: '-30%'
+
      },
      img2: {
         width: '95%',
@@ -171,14 +172,9 @@ const estilos = StyleSheet.create({
      },
      Registro:{
         width: '95%',
-        height: '25%',
+        height: '20%',
         backgroundColor: '#008cff',
         marginLeft: '3%',
         marginRight: '3%',
-        alignItems: 'center',
-        textAlignVertical: 'center'
-     },
-     adicionarConta:{
-
      }
 })

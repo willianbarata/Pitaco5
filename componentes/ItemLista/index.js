@@ -40,8 +40,8 @@ import URUGUAI    from './../../assets/bandeiras/Uruguai_128x128.png';
  
 export default function ItemLista(props) {
 
-    //console.log(props)
- 
+
+  
 const [pais1, setPais1] = useState('')
 const [pais2, setPais2] = useState('')
 const [diaSemanaPortugues, setDiaSemanaPortugues] = useState('')
@@ -65,19 +65,39 @@ const [ nomePaisCorrigido2, setNomePaisCorrigido2] = useState('')
     setHoraFormada( horario)
   }
 
+
+
     useEffect(() => {
       
      // console.log(props.imagemTime1)
       escolherPais1(props.imagemTime1)
       escolherPais2(props.imagemTime2)
-
+      //console.log('*****************************************')
       Moment.locale();
-     
+     // console.log(Moment(props.dataInicio).format('dddd'))
+      //console.log(props)
       diaSemana(Moment(props.dataInicio).format('dddd'))
       formatandoData(Moment(props.dataInicio).format('L'))
       formatandoHora(Moment(props.dataInicio).format('LT'))
+      
+   
 
       Moment.locale();  
+     //console.log( props.dataInicio.format('MMMM Do YYYY, h:mm:ss a'))
+   /*    Moment.locale();         // pt-br
+     Moment().format('LT');   // 17:42
+     
+     console.log(Moment(props.dataInicio).format('LT'))
+      moment().format('LTS');  // 17:42:28
+     moment().format('L');    // 11/11/2022
+     moment().format('l');    // 11/11/2022
+     moment().format('LL');   // 11 de novembro de 2022
+     moment().format('ll');   // 11 de nov de 2022
+     moment().format('LLL');  // 11 de novembro de 2022 às 17:42
+     moment().format('lll');  // 11 de nov de 2022 às 17:42
+     moment().format('LLLL'); // sexta-feira, 11 de novembro de 2022 às 17:42
+     moment().format('llll');   */
+
     }, []);
 
   return (
@@ -373,7 +393,7 @@ function escolherPais1(imgPais){
   
  
    function diaSemana(dia){
-     
+    // console.log(dia)
      switch (dia) {
        case "Sunday":
            setDiaSemanaPortugues("Dom")

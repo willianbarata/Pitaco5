@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Image, StyleSheet, FlatList, TouchableOpacity, ScrollView } from 'react-native';
 
-import { FontAwesome, FontAwesome5  } from '@expo/vector-icons'; 
+import { FontAwesome } from '@expo/vector-icons'; 
 
 import api from '../../services/api';
 
@@ -43,44 +43,13 @@ import URUGUAI    from './../../assets/bandeiras/Uruguai_128x128.png';
 
 export default function ItemListaClassificacao(props) {
   
-  useEffect(() => {
-      
-    var corOuro = "#f6c822"
-    var corPrata = "#c7c5c4"
-    var corBronze = "#945324"
-
-   // console.log("---- Tela ITEM LISTA CLASSIFICAÇÃO ----")
-   // console.log(props)
-    // console.log(props.imagemTime1)
-    /*  escolherPais1(props.imagemTime1)
-     escolherPais2(props.imagemTime2)
-     Moment.locale();
-     diaSemana(Moment(props.dataInicio).format('dddd'))
-     formatandoData(Moment(props.dataInicio).format('L'))
-     formatandoHora(Moment(props.dataInicio).format('LT'))
-     
-   console.log() */
-
-   }, []);
 
   return (
-  
-   
-        <View style={estilo.Lista}> 
-            <View style={estilo.Direction}>
-                
-                {/* <FontAwesome5 name="medal" size={24} color={'orange'} /> */}
-                
-                <FontAwesome style={estilo.item} name="user" size={24} color="black" />
-                <Text style={estilo.item}> {props.posicao} º </Text>
-                
-            </View>
-            <Text style={estilo.pontos}>Pontos: 0</Text>
-            
-        </View>
-        
-       
-   
+    <View style={estilo.container}>
+    <TouchableOpacity >
+        <Text> Teste </Text>
+    </TouchableOpacity>
+  </View>
   )
 }
 
@@ -93,21 +62,16 @@ const estilo = StyleSheet.create({
       padding: 10,
       fontSize: 19,
       height: 44,
-      marginLeft: '7%'
+      marginLeft: '3%'
     },
     pontos:{
         fontSize: 15,
         marginTop: -13,
-        marginLeft: '25%',
-        marginBottom: '2%'
+        marginLeft: '10%'
     },
     Lista:{
-        
-        marginBottom: '1%',
-        marginTop: '1%',
-        borderBottomWidth: 0.2,
-        
-        borderEndColor: '#e6e6e6'
+        marginLeft: '5%',
+        borderEndColor: 'gray'
     },
     flexa:{
         textAlign: 'right'

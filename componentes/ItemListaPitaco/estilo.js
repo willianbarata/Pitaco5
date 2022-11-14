@@ -49,3 +49,4 @@ const estilo = StyleSheet.create({
 });
 
 export default estilo;
+

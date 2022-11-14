@@ -5,6 +5,9 @@ const estilo = StyleSheet.create({
     padding: '5%',
     alignItems: 'center'
   },
+  blocoPlacar:{
+
+  },
   placar: {
     fontSize: 18,
     marginBottom: 5,
@@ -37,6 +40,10 @@ const estilo = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 12
   },
+  seta:{
+    marginTop: '2%',
+    marginLeft: '2%'
+  }
  
 
 });

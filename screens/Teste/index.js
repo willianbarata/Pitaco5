@@ -16,14 +16,14 @@ import api from "../../services/api";
 const Tab = createBottomTabNavigator();
 export default () => {
 
-/*   const [valor, setValor] = useState({})
+   const [valor, setValor] = useState({})
 
   useEffect(() => {
       const getBarberInfo = async () => {
           var lista = "";
         var res = await api.listarjogos(lista);
         
-        console.log(res);
+        console.log(valor);
           //setValor(res);
 
           //imprimir();
@@ -33,7 +33,7 @@ export default () => {
     }, []);
 
 
-     */
+     
 
     return(
         <NavigationContainer independent={true}>
@@ -74,7 +74,7 @@ export default () => {
                 }}
                 />
             <Tab.Screen 
-                name="InformacoesScreen" 
+                name="Informacões" 
                 component={InformacoesScreen} 
                 options={{
                     tabBarIcon: () =>(

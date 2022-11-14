@@ -20,8 +20,8 @@ export default function Tabela() {
        var jsonJogos = JSON.parse(res)
           setValor(jsonJogos);
           
-         // console.log('-----------')
-        //  console.log(valor)
+          console.log('-----------TABELA ----------------------')
+          console.log(valor)
           //imprimir();
       }
       getBarberInfo();
@@ -59,7 +59,8 @@ export default function Tabela() {
       renderItem={({item}) => 
       
       <ScrollView style={estilo.lista}>
-      <ItemLista placar={item.Codigo} dataInicio={item.DataHora} pais1={item.ImagemTime1} pais2={item.ImagemTime2} imagemTime1={item.ImagemTime1} imagemTime2={item.ImagemTime2} paisCasa="JAPAO" />
+      <ItemLista placar={item.placar} dataInicio={item.DataHora} pais1={item.ImagemTime1} pais2={item.ImagemTime2} imagemTime1={item.ImagemTime1} imagemTime2={item.ImagemTime2} paisCasa="JAPAO" />
+      
     </ScrollView> 
       }
     />

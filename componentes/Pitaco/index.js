@@ -42,7 +42,9 @@ const [paisFora, setPaisFora] =  React.useState("GALES");
   }
 
   const abreAposta = () =>{
+
     console.log("Abre Aposta")
+    
     setVisivel(true)
   }
 
@@ -54,7 +56,7 @@ const [paisFora, setPaisFora] =  React.useState("GALES");
             renderItem={({item}) => 
             
             <ScrollView style={estilo.lista}>
-              <TouchableOpacity >
+              <TouchableOpacity onPress={abreAposta}>
             <ItemListaPitaco placar={item.Codigo} dataInicio={item.DataHora} pais1={item.ImagemTime1} pais2={item.ImagemTime2} imagemTime1={item.ImagemTime1} imagemTime2={item.ImagemTime2} paisCasa="JAPAO" />
             </TouchableOpacity>
           </ScrollView> 

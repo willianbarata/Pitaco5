@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, TextInput,ScrollView } from 'react-native';
-
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView,FlatList } from 'react-native';
+import { FontAwesome, FontAwesome5  } from '@expo/vector-icons'; 
 import Titulo from '../Titulo';
 import ItemListaClassificacao from '../ItemListaClassificacao';
 
@@ -12,16 +12,23 @@ export default function Classificacao() {
 
   useEffect(() => {
 
+    var corOuro = "#f6c822"
+    var corPrata = "#c7c5c4"
+    var corBronze = "#945324"
+
     const getBarberInfo = async () => {
       var lista = "";
       var email = '';
       var senha = '';
       var res = await api.listarclassificacao(email, senha);
       
-      console.log("---- Tela Classificacao ----")
-      console.log(res)
+   
          var jsonJogos = JSON.parse(res)
-        setValor(jsonJogos);
+         console.log('---------- Tela Classificação DEPOIS')
+      //  console.log(jsonJogos)
+        console.log(jsonJogos["children"])
+        console.log(jsonJogos.children)
+        setValor(jsonJogos["children"]);
     }
     getBarberInfo();
     
@@ -30,8 +37,31 @@ export default function Classificacao() {
 
   return (
    
-    <ItemListaClassificacao placar="2 x 2" dataInicio="19/10, qua às 13:00" paises="Estados Unidos x País de Gales" paisCasa="JAPAO" />
-    
+   
+    <View >
+      <Text> Teste</Text>
+    <FlatList
+      data={valor}
+      renderItem={({item}) => 
+      
+      <ScrollView style={estilo.lista}>
+        
+        <View style={estilo.Lista}> 
+            <View style={estilo.Direction}>
+                
+                {/* <FontAwesome5 name="medal" size={24} color={'orange'} /> */}
+                
+                <FontAwesome style={estilo.item} name="user" size={24} color="black" />
+                <Text style={estilo.item}> {item.attributes.Posicao} º </Text>
+                <Text style={estilo.flexa}> {item.attributes.Usuario} </Text>
+            </View>
+            <Text style={estilo.pontos}>Pontos: {item.attributes.Pontos}</Text>
+            
+        </View>
+    </ScrollView> 
+      }
+    />
+  </View>
  
   )
 }
@@ -81,5 +111,35 @@ const estilo = StyleSheet.create({
   },
   blocoPlacar:{
     flexDirection: 'row',
-  }
+  },
+  container: {
+    flex: 1,
+    paddingTop: 22
+   },
+   item: {
+     padding: 10,
+     fontSize: 16,
+     height: 44,
+     marginLeft: '7%'
+   },
+   pontos:{
+       fontSize: 15,
+       marginTop: -13,
+       marginLeft: '25%',
+       marginBottom: '2%'
+   },
+   Lista:{
+       
+       marginBottom: '1%',
+       marginTop: '1%',
+       borderBottomWidth: 0.2,
+       borderEndColor: '#e6e6e6'
+   },
+   flexa:{
+       textAlign: 'right',
+
+   },
+   Direction:{
+       flexDirection: 'row'
+   }
 });

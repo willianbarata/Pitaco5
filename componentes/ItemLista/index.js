@@ -40,8 +40,8 @@ import URUGUAI    from './../../assets/bandeiras/Uruguai_128x128.png';
  
 export default function ItemLista(props) {
 
-
-  
+    //console.log(props)
+ 
 const [pais1, setPais1] = useState('')
 const [pais2, setPais2] = useState('')
 const [diaSemanaPortugues, setDiaSemanaPortugues] = useState('')

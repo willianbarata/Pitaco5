@@ -49,8 +49,8 @@ export default function ItemListaClassificacao(props) {
     var corPrata = "#c7c5c4"
     var corBronze = "#945324"
 
-    console.log("---- Tela ITEM LISTA PITACO ----")
-    console.log(props)
+   // console.log("---- Tela ITEM LISTA CLASSIFICAÇÃO ----")
+   // console.log(props)
     // console.log(props.imagemTime1)
     /*  escolherPais1(props.imagemTime1)
      escolherPais2(props.imagemTime2)
@@ -64,38 +64,23 @@ export default function ItemListaClassificacao(props) {
    }, []);
 
   return (
-    <FlatList
-      data={[
-        {key: 'Devin Devin Devin', posicao: '1'},
-        {key: 'Dan Dominic Dominic' , posicao: '2'},
-        {key: 'Dominic Dominic Dominic', posicao: '3'},
-        {key: 'Jackson Dominic Dominic', posicao: '4'},
-        {key: 'James Dominic', posicao: '5'},
-        {key: 'Joel Dominic', posicao: '6'},
-        {key: 'John Dominic', posicao: '7'},
-        {key: 'Jillian Dominic', posicao: '8'},
-        {key: 'Jimmy Dominic Dominic', posicao: '9'},
-        {key: 'Julie Dominic Dominic', posicao: '10'},
-      ]}
-      renderItem={({item}) => 
-        
-      <TouchableOpacity onPress={()=>{}}>
+  
+   
         <View style={estilo.Lista}> 
             <View style={estilo.Direction}>
                 
                 {/* <FontAwesome5 name="medal" size={24} color={'orange'} /> */}
                 
                 <FontAwesome style={estilo.item} name="user" size={24} color="black" />
-                <Text style={estilo.item}> {item.posicao} º - {item.key}</Text>
+                <Text style={estilo.item}> {props.posicao} º </Text>
                 <Text style={estilo.flexa}>  </Text>
             </View>
             <Text style={estilo.pontos}>Pontos: 0</Text>
             
         </View>
         
-        </TouchableOpacity>
-    }
-    />
+       
+   
   )
 }
 

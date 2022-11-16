@@ -1,13 +1,19 @@
 import { StyleSheet } from 'react-native';
 
 const estilo = StyleSheet.create({
-  box:{
-    padding: '5%',
-    alignItems: 'center'
+  blocoPlacar:{
+    backgroundColor: 'blue',
+    flex: 1,
+    marginTop: 50
   },
   placar: {
     fontSize: 18,
-    marginBottom: 5,
+    alignItems: 'center',
+   
+  },
+  placarX:{
+    fontSize: 10,
+    marginTop: 2,
     alignItems: 'center'
   },
   dataInicio:{
@@ -20,23 +26,47 @@ const estilo = StyleSheet.create({
     width: 35,
     height: 35,
     borderRadius: 30,
-    marginRight: '35%'
+    
   },
   imgPaisFora:{
     width: 35,
     height: 35,
     borderRadius: 30,
-    marginLeft: '35%'
+   
   },
   blocoPlacar:{
     flexDirection: 'row',
+    flex: 1,
+    justifyContent:'space-around',
+    
   },
   corEnvioPitaco:{
     color: '#f12128',
-    marginLeft: '5%',
+    
     fontWeight: 'bold',
     fontSize: 12
   },
+  seta:{
+    marginTop: '2%',
+    marginLeft: '2%'
+  },
+  placarPalpite:{
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    width: '50%'
+  },
+  centralizando:{
+    flex: 1,
+    alignItems: 'center',
+    
+    marginBottom: '2%'
+  },
+  corAguardandoResultado:{
+    color: 'purple',
+    
+    
+    fontSize: 12
+  }
  
 
 });

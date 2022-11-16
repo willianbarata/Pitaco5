@@ -19,18 +19,22 @@ const estilo = StyleSheet.create({
   width: 35,
   height: 40,
   borderWidth: 1,
-  borderColor: "#000"
+  borderColor: "#000",
+  textAlign: 'center'
 },
 inputFora:{
   width: 35,
   height: 40,
   borderWidth: 1,
   borderColor: "#000",
-  marginLeft: 15
+  marginLeft: 15,
+  textAlign: 'center'
 },
 grupoInputs:{
   flexDirection: 'row',
-  marginTop: 10
+  marginTop: 10,
+  
+  justifyContent: 'center'
 },
 botao:{
     alignItems: 'center',
@@ -38,8 +42,7 @@ botao:{
     padding: 10,
     width: 300,
     marginTop: 16,
-    marginLeft: '10%',
-    marginRight: '10%'
+    
 },
 corBotao:{
   color: 'white',
@@ -50,6 +53,7 @@ Titulo:{
   width: '100%',
   backgroundColor: '#151f79',
   flexDirection: 'row',
+  
 },
 PaisesTopo:{
   color: 'white',
@@ -58,15 +62,13 @@ PaisesTopo:{
 },
 doisPaisesAposta:{
   flexDirection: 'row',
-  marginLeft: 5
+  justifyContent: 'center'
 },
 imagemCasa:{
   width: 100,
   height: 100,
   borderRadius: 30,
   marginTop: '10%',
-  marginLeft: '10%',
-  marginRight: '5%'
 },
 imagemFora:{
   width: 100,
@@ -77,16 +79,21 @@ imagemFora:{
 },
 seuPitaco:{
   marginTop: '30%',
-  marginLeft: '10%',
+  textAlign: 'center',
   fontSize: 11
 },
 vs:{
-  marginLeft: '25%'
+  textAlign: 'center'
 },
 corBotaoFechar:{
-  color: 'white',
-  marginTop: 20,
-  marginLeft: '60%'
+  
+  color: 'white'
+
+},
+botaoFechar:{
+  flexDirection: 'row-reverse',
+  flex: 1,
+  marginTop: '3%'
 },
 colapse:{
   color: '#0088ff',
@@ -109,6 +116,16 @@ bordaCollapseGeral:{
   borderRightColor: '#ffffff',
   borderBottomColor: '#bbbfc3',
   borderWidth: 1,
+  
+},
+alinhandoBotaoPalpitar:{
+  justifyContent: 'center',
+  alignItems: 'center',
+  
+ 
+},
+blocoVS:{
+  justifyContent: 'center',
   
 }
 });

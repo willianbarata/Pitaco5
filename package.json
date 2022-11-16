@@ -27,7 +27,8 @@
     "react-native-segmented-control-tab": "^4.0.0",
     "react-native-xml2js": "^1.0.3",
     "react-xml-parser": "^1.1.8",
-    "soap": "^0.45.0"
+    "soap": "^0.45.0",
+    "xml2json-light": "^1.0.6"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9"

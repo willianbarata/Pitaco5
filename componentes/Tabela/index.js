@@ -18,48 +18,32 @@ export default function Tabela() {
         var res = await api.listarjogos(lista);
         
        var jsonJogos = JSON.parse(res)
+       
           setValor(jsonJogos);
           
-          console.log('-----------TABELA ----------------------')
-          console.log(valor)
+          console.log('-------- Renderizando Tabela -----------------')
+          console.log(jsonJogos)
+          
           //imprimir();
       }
       getBarberInfo();
       
     }, []);
 
-
-
-  /*   const renderItem = ({ item, index }) => (
-     
-          {item.map((employee, index) => {
-        return (
-          <View>
-            <Text>name: {employee.Codigo}</Text>
-            <Text>country: {employee.Time1}</Text>
-            </View>
-        );
-
-        });     
-    ); */
-
   return (
- /*    <View>
-      <Titulo />
-
-      <ScrollView style={estilo.lista}>
-        <ItemLista placar={valor[0]} dataInicio="19/10, qua às 13:00" paises="Estados Unidos x País de Gales" paisCasa="JAPAO" />
-      </ScrollView> 
-    </View>
- */
-
     <View >
     <FlatList
       data={valor}
       renderItem={({item}) => 
       
       <ScrollView style={estilo.lista}>
-      <ItemLista placar={item.placar} dataInicio={item.DataHora} pais1={item.ImagemTime1} pais2={item.ImagemTime2} imagemTime1={item.ImagemTime1} imagemTime2={item.ImagemTime2} paisCasa="JAPAO" />
+      <ItemLista placar={item.placar} 
+              dataInicio={item.DataHora} 
+              Time1={item.Time1} 
+              Time2={item.Time2} 
+              GolTime1={item.GolsTime1 ?? '-'} 
+              GolTime2={item.GolsTime2 ?? '-'} 
+              imagemTime1={item.ImagemTime1} imagemTime2={item.ImagemTime2} paisCasa="JAPAO" />
       
     </ScrollView> 
       }

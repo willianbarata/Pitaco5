@@ -82,19 +82,29 @@ const [ nomePaisCorrigido2, setNomePaisCorrigido2] = useState('')
 
   return (
     <View style={estilo.box}>
+         <View style={estilo.centralizando} >
         <Text style={estilo.dataInicio}> {dataFormatada } , {diaSemanaPortugues} às {Moment(props.dataInicio).format('LT')} </Text>
+        </View>
       <View style={estilo.blocoPlacar}>
-              <Image source={pais1} style={estilo.imgPaisCasa} />
-            <Text style={estilo.placar}>
-             {props.placar}
+      
+         <Image source={pais1} style={estilo.imgPaisCasa} />
+        <View style={estilo.placarPalpite}>
+            <Text style={estilo.placar}> 
+             {props.GolTime1}
            </Text>
+           <Text style={estilo.placarX}> X </Text>
+           <Text style={estilo.placar}> 
+           {props.GolTime2}
+           </Text>
+           </View>
            <Image source={pais2} style={estilo.imgPaisFora} />
+
       </View> 
-      
-      <Text style={estilo.paises}>
-          {nomePaisCorrigido1 } x {nomePaisCorrigido2 }
-      </Text>
-      
+      <View style={estilo.centralizando} >
+        <Text style={estilo.paises}>
+            {props.Time1} x {props.Time2}
+        </Text>
+      </View>
     </View>
   )
 
